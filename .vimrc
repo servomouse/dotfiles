@@ -1,7 +1,7 @@
 set nocompatible
 set autoindent
 set expandtab		" Convert tabs to spaces.
-set filetype indent on	" Enable indentation rules that are file-type specific
+"set " filetype-indent-on	" Enable indentation rules that are file-type specific
 set shiftround		" When shifting lines, round the indentation to the nearest multiple of shiftwidth
 set shiftwidth=4
 set smarttab
@@ -25,7 +25,7 @@ syntax enable
 set laststatus=2			" Always display the status bar
 set ruler				" Always show cursor position
 set wildmenu			" Display command line's tab complete options as a menu
-set colorscheme wombat256mod	" Change color scheme.
+" colorscheme wombat256mod	" Change color scheme.
 set cursorline			" Highlight the line currently under cursor.
 set number				" Show line numbers on the sidebar.
 set relativenumber		" Show line number on the current line and relative numbers on all other lines.
@@ -39,4 +39,16 @@ set foldmethod=indent		" Fold based on indention levels.
 
 filetype plugin on
 set path+=**
+
+" Text editing:
+nnoremap <A-Up> ddkP
+nnoremap <A-Down> ddp
+vnoremap <A-Up> xkPgv
+vnoremap <A-Down> xp`[Vs
+
+" Comment/uncomment:
+nnoremap <C-c> :silent! if getline('.') =~ '^#' \| execute 's/^# \?//' \| else \| execute 's/^/# /' \| endif<CR>
+vnoremap <C-c> :silent! '<,'>s/^# \\?// \| '<,'>s/^/# / \| redraw!<CR>
+
+
 
