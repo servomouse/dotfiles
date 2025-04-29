@@ -1,0 +1,31 @@
+# Tabs:
+:tabedit filename # Opens a file in a new tab
+vim -p filename1.txt filename2.html filename3.css
+# Switch between tabs:
+gt
+gT
+2gt # Switch to the tab number 2
+
+# Split the window:
+:vsplit # Vertically
+:split  # Horizontally
+# Resize:
+Ctrl+W +/-: increase/decrease height (ex. 20<C-w>+)
+Ctrl+W >/<: increase/decrease width (ex. 30<C-w><)
+Ctrl+W _: set height (ex. 50<C-w>_)
+Ctrl+W |: set width (ex. 50<C-w>|)
+Ctrl+W =: equalize width and height of all windows
+# Possible settings:
+noremap <silent> <C-S-Left> :vertical resize +1<CR>
+noremap <silent> <C-S-Right> :vertical resize -1<CR>
+
+# Open a file:
+:o filename
+
+# Sessions:
+:mksession filename.vim     # Creates a session
+vim -S filename.vim         # Loads previously created session
+
+# Completion:
+Ctrl-n or Ctrl-p
+
