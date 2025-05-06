@@ -38,5 +38,15 @@ Ctrl-n or Ctrl-p
 :    normal i# 
 :  endif
 :endfunction
+# And for visual mode:
+:function GoToFirstNonWhitespaceAndInsertVisual()
+:  let start_line = line("'<")
+:  let end_line = line("'>")
+:  for i in range(start_line, end_line)
+:    call cursor(i, 1)
+:    call GoToFirstNonWhitespaceAndInsert()
+:  endfor
+:endfunction
 
+:vnoremap <leader># :call GoToFirstNonWhitespaceAndInsertVisual()<CR>
 :nnoremap <leader># :call GoToFirstNonWhitespaceAndInsert()<CR>
