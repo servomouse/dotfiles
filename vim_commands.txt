@@ -29,3 +29,14 @@ vim -S filename.vim         # Loads previously created session
 # Completion:
 Ctrl-n or Ctrl-p
 
+# Auto_comment:
+:function GoToFirstNonWhitespaceAndInsert()
+:  normal ^
+:  if getline(".")[col(".")-1] == '#'
+:    normal xr
+:  else
+:    normal i# 
+:  endif
+:endfunction
+
+:nnoremap <leader># :call GoToFirstNonWhitespaceAndInsert()<CR>
