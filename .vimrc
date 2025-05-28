@@ -46,9 +46,19 @@ nnoremap <A-Down> ddp
 vnoremap <A-Up> xkPgv
 vnoremap <A-Down> xp`[Vs
 
-" Comment/uncomment:
-nnoremap <C-c> :silent! if getline('.') =~ '^#' \| execute 's/^# \?//' \| else \| execute 's/^/# /' \| endif<CR>
-vnoremap <C-c> :silent! '<,'>s/^# \\?// \| '<,'>s/^/# / \| redraw!<CR>
+" Move current line up/down in normal mode:
+nnoremap <Leader>u :m .-2<CR>==
+nnoremap <Leader>d :m .+1<CR>==
 
+" Move selected lines up/down in visual mode:
+vnoremap <Leader>u :m '<-2<CR>gv=gv
+vnoremap <Leader>d :m '<+1<CR>gv=gv
 
+" Comment/uncomment in normal mode:
+nnoremap <Leader>c :s /^/#/<CR>
+nnoremap <Leader>x :s /^#//<CR>
+
+" Comment/uncomment in visual mode:
+vnoremap <Leader>c :s /^/#/<CR>gv=gv
+vnoremap <Leader>x :s /^#//<CR>gv=gv
 
